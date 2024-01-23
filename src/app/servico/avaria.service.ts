@@ -17,4 +17,9 @@ export class AvariaService {
   selecionar():Observable<Avaria[]>{
     return this.http.get<Avaria[]>(this.url);
   }
+
+  //Método para cadastrar avarias
+  cadastrar(obj:Avaria):Observable<Avaria>{
+    return this.http.post<Avaria>(this.url, obj);
+  }
 }
