@@ -17,7 +17,7 @@
 
 <!--<h1>{{avaria | json}}</h1-->
 
-<table class="table">
+<table class="table" *ngIf="tabela">
     <thead>
         <tr>
             <th>Nº de Quarto</th>
@@ -28,13 +28,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let a of avarias">
+        <tr *ngFor="let a of avarias; index as i">
             <td>{{a.numero_quarto}}</td>
             <td>{{a.hotel}}</td>
             <td>{{a.equipamento}}</td>
             <td>{{a.por_quem}}</td>
             <td>{{a.descricao}}</td>
-            <td><button class="btn btn-success">Selecionar</button></td>
+            <td><button class="btn btn-success" (click)="selecionarAvaria(i)">Selecionar</button></td>
         </tr>
     </tbody>
 

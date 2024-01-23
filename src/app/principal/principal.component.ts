@@ -14,6 +14,8 @@ export class PrincipalComponent {
 
   // variavel para visibilidade dos botões
   btnCadastro:boolean = true;
+  //variavel para visibilidade da tabela
+  tabela:boolean = true;
   //JSON de avarias
   avarias:Avaria[] = [];
 
@@ -34,6 +36,16 @@ export class PrincipalComponent {
       //mensagem
       alert('Avaria cadastrada com sucesso!');
     });
+  }
+
+  selecionarAvaria(posicao:number):void{
+    //selecionar cliente no vetor
+    this.avaria = this.avarias[posicao];
+    //visibilidade dos botoes
+    this.btnCadastro = false;
+    //visibilidade da tabela
+    this.tabela = false;
+
   }
   //Método de inicialização
   ngOnInit(){
