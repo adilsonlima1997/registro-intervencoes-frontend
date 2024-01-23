@@ -25,5 +25,15 @@
             <th>Descrição de Avaria</th>
         </tr>
     </thead>
+    <tbody>
+        <tr *ngFor="let a of avarias">
+            <td>{{a.numero_quarto}}</td>
+            <td>{{a.hotel}}</td>
+            <td>{{a.equipamento}}</td>
+            <td>{{a.por_quem}}</td>
+            <td>{{a.descricao}}</td>
+            <td><button class="btn btn-success">Selecionar</button></td>
+        </tr>
+    </tbody>
 
 </table>
