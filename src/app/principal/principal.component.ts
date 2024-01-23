@@ -26,7 +26,14 @@ export class PrincipalComponent {
   //Método de cadastro
   cadastrar():void{
     this.servico.cadastrar(this.avaria)
-    .subscribe(retorno => {this.avarias.push(retorno);});
+    .subscribe(retorno => {
+      //cadastrar a avaria no vetor
+      this.avarias.push(retorno);
+      //limpar formulario
+      this.avaria = new Avaria();
+      //mensagem
+      alert('Avaria cadastrada com sucesso!');
+    });
   }
   //Método de inicialização
   ngOnInit(){
