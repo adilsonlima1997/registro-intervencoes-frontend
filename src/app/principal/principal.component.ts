@@ -45,7 +45,28 @@ export class PrincipalComponent {
     this.btnCadastro = false;
     //visibilidade da tabela
     this.tabela = false;
+  }
 
+  //Metodo para editar avarias
+  editar():void{
+    this.servico.editar(this.avaria)
+    .subscribe(retorno => {
+      //obter posicao do vetor onde está há avaria
+      let posicao = this.avarias.findIndex(obj => {
+        return obj.numero_quarto == retorno.numero_quarto;
+      });
+
+      //alterar os dados da avaria no vetor
+      this.avarias[posicao] = retorno;
+      //limpar formulario
+      this.avaria = new Avaria();
+      //visibilidade dos botoes
+      this.btnCadastro = true;
+      //visibilidade da tabeela
+      this.tabela = true;
+      //mensagem
+      alert('Avaria alterado com sucesso!'); 
+    });
   }
   //Método de inicialização
   ngOnInit(){

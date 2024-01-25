@@ -22,4 +22,9 @@ export class AvariaService {
   cadastrar(obj:Avaria):Observable<Avaria>{
     return this.http.post<Avaria>(this.url, obj);
   }
+
+  //Método para edita avaria
+  editar(obj:Avaria):Observable<Avaria>{
+    return this.http.put<Avaria>(this.url, obj);
+  }
 }
